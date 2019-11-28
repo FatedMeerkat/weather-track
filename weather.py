@@ -1,5 +1,8 @@
 import requests
 import json
+from Tkinter import *
+
+root = Tk()
 
 key = "yourkey"
 url = "http://api.openweathermap.org/data/2.5/weather?"
@@ -19,3 +22,8 @@ if spr["cod"] != "404":
 
 else:
     print("No city found.")
+    
+temp = Label(root, text=curtemp)
+temp.pack()
+
+root.mainloop()
