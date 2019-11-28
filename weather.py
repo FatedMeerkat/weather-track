@@ -1,0 +1,20 @@
+import requests
+import json
+
+key = "yourkey"
+url = "http://api.openweathermap.org/data/2.5/weather?"
+city = "yourcity"
+fullurl = base_url + "appid=" + api_key + "&q=" + city_name 
+response = requests.get(complete_url) 
+spr = response.json() 
+
+if spr["cod"] != "404": 
+    spr2 = spr["main"]
+    curtemp = spr2["temp"]
+    curpres = spr2["pressure"]
+    curhumi = spr2["humidity"]
+    spr3 = spr["weather"]
+    print("Temperature:", temp, "Pressure:", pressure)
+
+else:
+    print("No city found.")
