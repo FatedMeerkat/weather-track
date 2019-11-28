@@ -4,7 +4,7 @@ import json
 key = "yourkey"
 url = "http://api.openweathermap.org/data/2.5/weather?"
 city = "yourcity"
-fullurl = url + "appid=" + api_key + "&q=" + city_name 
+fullurl = url + "appid=" + key + "&q=" + city
 response = requests.get(complete_url) 
 spr = response.json() 
 
