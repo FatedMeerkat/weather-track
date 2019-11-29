@@ -26,7 +26,7 @@ if spr["cod"] != "404":
 else:
     print("No city found.")
 
-canv = Canvas(master, width=480, height=320)
+canv = Canvas(root, width=480, height=320)
 canv.pack()
 canv.create_text(anchor=NW, text=cel)
 canv.create_text(anchor=NW, text=humi)
