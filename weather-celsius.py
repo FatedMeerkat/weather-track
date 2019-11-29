@@ -26,7 +26,8 @@ if spr["cod"] != "404":
 else:
     print("No city found.")
 
-frame = LabelFrame(root, text="Weather").pack(fill="both", expand="yes")
+frame = LabelFrame(root, text="Weather")
+frame.pack(fill="both", expand="yes")
 temp = Label(frame, text=cel).pack()
 humid = Label(frame, text=humi).pack()
 press = Label(frame, text=pressure).pack()
