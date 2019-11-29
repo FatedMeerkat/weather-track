@@ -18,7 +18,7 @@ if spr["cod"] != "404":
     curhumi = spr2["humidity"]
     spr3 = spr["weather"]
     print("Temperature:", curtemp, "Pressure:", curpres)
-    #if your temp is Celsius then celsius = 5/9*(curtemp-32)
+    #if your temp is Celsius then celsius = curtemp - 273.15
 
 else:
     print("No city found.")
