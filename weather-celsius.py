@@ -1,6 +1,7 @@
 import requests
 import json
 from Tkinter import *
+from flask import Flask
 
 root = Tk()
 
@@ -26,10 +27,24 @@ if spr["cod"] != "404":
 else:
     print("No city found.")
 
-frame = LabelFrame(root, text="Weather")
-frame.pack(fill="both", expand="yes")
-temp = Label(frame, text=cel).pack()
-humid = Label(frame, text=humi).pack()
-press = Label(frame, text=pressure).pack()
+root.title("Weather in", city)
 
+temp = Label(root, text=temperature)
+temp.pack()
+
+humi = Label(root, text=humidity)
+humi.pack()
+
+pres = Label(root, text=pressure)
+pres.pack()
+
+app = Flask(__name__)
+
+@app.route('/')
+def web():
+    return render_template("index.html", temp1=cel, humid1=humi, press1=pressure);
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=8000, debug=True)
+    
 root.mainloop()
