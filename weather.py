@@ -1,12 +1,12 @@
 import requests
 import json
-from tkinter import *
+from Tkinter import *
 
 root = Tk()
 
-key = "key"
+key = "yourkey"
 url = "http://api.openweathermap.org/data/2.5/weather?"
-city = "city"
+city = "yourcity"
 fullurl = url + "appid=" + key + "&q=" + city
 response = requests.get(fullurl) 
 spr = response.json() 
@@ -17,25 +17,18 @@ if spr["cod"] != "404":
     curpres = spr2["pressure"]
     curhumi = spr2["humidity"]
     spr3 = spr["weather"]
-    temperature = "Temperature:", curtemp - 272.15,"C"
-    pressure = "Pressure:", curpres,"hPa"
-    humidity = "Humidity:", curhumi,"%"
-    print("Temperature:", curtemp - 273.15, "Pressure:", curpres)
+    cel = "Temperature", curtemp - 273.15, "C°"
+    humi = "Humidity:", curhumi,"%"
+    pressure = "Pressure:", curpress, "hPa"
+    print("Temperature:", cel, "Pressure:", curpres)
     #if your temp is Celsius then celsius = curtemp - 273.15
 
 else:
     print("No city found.")
-    
 
-root.title("Weather in the city")
-
-temp = Label(root, text=temperature)
-temp.pack()
-
-humi = Label(root, text=humidity)
-humi.pack()
-
-pres = Label(root, text=pressure)
-pres.pack()
+frame = LabelFrame(root, text="Weather").pack(fill="both", expand="yes")
+temp = Label(frame, text=cel).pack()
+humid = Label(frame, text=humi).pack()
+press = Label(frame, text=pressure).pack()
 
 root.mainloop()
